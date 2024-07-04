@@ -5,7 +5,12 @@ WORKDIR /app
 RUN mkdir -p /app/output /app/upl /app/downl
 
 RUN apt-get update \
-    && apt-get install -y libjpeg-dev zlib1g-dev \
+    && apt-get install -y \
+        gcc \
+        python3-dev \
+        musl-dev \
+        libjpeg-dev \
+        zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
