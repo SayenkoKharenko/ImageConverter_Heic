@@ -75,9 +75,9 @@ def upload():
     if not files:
         return "No selected files"
 
-    input_folder = '/Users/oyeshanov/ImageConverter_Heic/upl/'
-    output_folder = '/Users/oyeshanov/ImageConverter_Heic/downl/'
-    zip_file_path = '/Users/oyeshanov/ImageConverter_Heic/output/archive.zip'
+    input_folder = '/app/upl/'
+    output_folder = '/app/downl/'
+    zip_file_path = '/app/output/archive.zip'
 
     create_directory(input_folder)
     create_directory(output_folder)
@@ -100,7 +100,7 @@ def upload():
 
 @app.route('/download')
 def download():
-    zip_file_path = '/Users/oyeshanov/Heic/output/archive.zip'
+    zip_file_path = '/app/output/archive.zip'
     filename = 'converted_files.zip'
     response = send_file(zip_file_path, as_attachment=True)
     response.headers["Content-Disposition"] = f"attachment; filename={filename}"
