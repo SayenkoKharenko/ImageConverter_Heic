@@ -4,9 +4,8 @@ WORKDIR /app
 
 RUN mkdir -p /app/output /app/upl /app/downl
 
-# Install necessary packages
-RUN apt-get update && apt-get install -y \
-    zlib1g-dev \
+RUN apt-get update \
+    && apt-get install -y libjpeg-dev zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
